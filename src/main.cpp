@@ -1,4 +1,4 @@
-#include <fiducial_detector/detector.h>
+#include <aruco_detector/detector.h>
 #include <rclcpp/rclcpp.hpp>
 
 int main(int argc, char** argv) {

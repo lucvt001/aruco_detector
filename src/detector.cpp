@@ -1,4 +1,4 @@
-#include <fiducial_detector/detector.h>
+#include <aruco_detector/detector.h>
 
 
 ArucoDetector::ArucoDetector() : Node("aruco_detector"), it_(node_) {
