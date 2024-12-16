@@ -1,0 +1,10 @@
+<launch>
+    <node name="fiducial_detector_node" pkg="fiducial_detector" type="fiducial_detector" output="screen">
+        <param name="input_image_topic" type="string" value="/sensor/camera" />
+        <param name="output_image_topic" type="string" value="/aruco/annotated_frames" />
+        <param name="bbox_pub_topic" type="string" value="/aruco/bounding_boxes" />
+        <param name="is_display" type="bool" value="true" />
+        <param name="camera_parameters_yaml" type="string" value="$(find fiducial_detector)/yaml/iphone_calibration.yaml" />
+        <param name="marker_info_yaml" type="string" value="$(find fiducial_detector)/yaml/landing_pad_final.yaml" />
+    </node>
+</launch>
