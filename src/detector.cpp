@@ -1,8 +1,12 @@
 #include <aruco_detector/detector.h>
 
 
-ArucoDetector::ArucoDetector() : Node("aruco_detector"), it_(node_) {
-    // Declare parameters
+ArucoDetector::ArucoDetector() : Node("aruco_detector")
+{
+}
+
+void ArucoDetector::initialize() {
+        // Declare parameters
     this->declare_parameter<std::string>("input_image_topic", "/camera/image_raw");
     this->declare_parameter<std::string>("output_image_topic", "/camera/image_processed");
     this->declare_parameter<std::string>("landing_pad_position_topic", "/aruco/landing_pad_position");
@@ -22,6 +26,7 @@ ArucoDetector::ArucoDetector() : Node("aruco_detector"), it_(node_) {
     loadMarkerInfo(marker_info_yaml_);
 
     // Subscribe to the image topic
+    image_transport::ImageTransport it_(shared_from_this());
     image_sub_ = it_.subscribe(input_image_topic_, 2, &ArucoDetector::imageCallback, this);
     image_pub_ = it_.advertise(output_image_topic_, 2);
 

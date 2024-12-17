@@ -18,6 +18,7 @@
 class ArucoDetector : public rclcpp::Node {
 public:
     ArucoDetector();
+    void initialize();
 
 private:
     struct MarkerInfo {
@@ -37,8 +38,6 @@ private:
     cv::Mat dist_coeffs_;
     std::unordered_map<int, MarkerInfo> marker_info_;
 
-    rclcpp::Node::SharedPtr node_ = rclcpp::Node::make_shared("image_publisher");
-    image_transport::ImageTransport it_;
     image_transport::Subscriber image_sub_;
     image_transport::Publisher image_pub_;
     rclcpp::Publisher<geometry_msgs::msg::Point>::SharedPtr landing_pad_position_pub_;
