@@ -1,0 +1,10 @@
+<launch>
+    <node name="aruco_detector_node" pkg="aruco_detector" type="aruco_detector" output="screen">
+        <param name="input_image_topic" type="string" value="/sensor/camera" />
+        <param name="output_image_topic" type="string" value="/aruco/annotated_frames" />
+        <param name="landing_pad_position_topic" type="string" value="/aruco/landing_pad_position" />
+        <param name="is_display" type="bool" value="true" />
+        <param name="camera_parameters_yaml" type="string" value="$(find aruco_detector)/yaml/iphone_calibration.yaml" />
+        <param name="marker_info_yaml" type="string" value="$(find aruco_detector)/yaml/landing_pad_final.yaml" />
+    </node>
+</launch>

@@ -40,10 +40,10 @@ include_directories(
   ${YAML_CPP_INCLUDE_DIRS}
 )
 
-add_executable(fiducial_detector src/main.cpp src/detector.cpp)
-ament_target_dependencies(fiducial_detector ${ROS_DEPENDENCIES})
-target_link_libraries(fiducial_detector ${OpenCV_LIBRARIES} ${YAML_CPP_LIBRARIES})
-install(TARGETS fiducial_detector DESTINATION lib/${PROJECT_NAME})
+add_executable(aruco_detector src/main.cpp src/detector.cpp src/quaternion.cpp)
+ament_target_dependencies(aruco_detector ${ROS_DEPENDENCIES})
+target_link_libraries(aruco_detector ${OpenCV_LIBRARIES} ${YAML_CPP_LIBRARIES})
+install(TARGETS aruco_detector DESTINATION lib/${PROJECT_NAME})
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
