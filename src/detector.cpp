@@ -115,18 +115,16 @@ void ArucoDetector::imageCallback(const sensor_msgs::msg::Image::ConstSharedPtr 
     pad_position.z = height;
     landing_pad_position_pub_->publish(pad_position);
 
-    if (is_display_) {
-        cv::aruco::drawDetectedMarkers(frame, marker_corners, marker_ids);
-        // Draw a crosshair at the 2D position
-        int crosshair_size = 30;
-        pad_position_2d = cv::Point2d(pad_position_2d_norm.x * frame_width, pad_position_2d_norm.y * frame_height);
-        cv::line(frame, cv::Point(pad_position_2d.x - crosshair_size, pad_position_2d.y), 
-                cv::Point(pad_position_2d.x + crosshair_size, pad_position_2d.y), cv::Scalar(0, 0, 255), 2);
-        cv::line(frame, cv::Point(pad_position_2d.x, pad_position_2d.y - crosshair_size), 
-                cv::Point(pad_position_2d.x, pad_position_2d.y + crosshair_size), cv::Scalar(0, 0, 255), 2);
-        // Draw the 3D axis
-        cv::aruco::drawAxis(frame, camera_matrix_, dist_coeffs_, rvec_pad, tvec_pad, 0.1);
-    }
+    cv::aruco::drawDetectedMarkers(frame, marker_corners, marker_ids);
+    // Draw a crosshair at the 2D position
+    int crosshair_size = 10;
+    pad_position_2d = cv::Point2d(pad_position_2d_norm.x * frame_width, pad_position_2d_norm.y * frame_height);
+    cv::line(frame, cv::Point(pad_position_2d.x - crosshair_size, pad_position_2d.y), 
+            cv::Point(pad_position_2d.x + crosshair_size, pad_position_2d.y), cv::Scalar(0, 0, 255), 2);
+    cv::line(frame, cv::Point(pad_position_2d.x, pad_position_2d.y - crosshair_size), 
+            cv::Point(pad_position_2d.x, pad_position_2d.y + crosshair_size), cv::Scalar(0, 0, 255), 2);
+    // Draw the 3D axis
+    cv::aruco::drawAxis(frame, camera_matrix_, dist_coeffs_, rvec_pad, tvec_pad, 0.1);
 
     displayAndPublishImage(frame);
 }
