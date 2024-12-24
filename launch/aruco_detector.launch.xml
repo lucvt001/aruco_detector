@@ -7,4 +7,6 @@
         <param name="camera_parameters_yaml" value="$(find-pkg-share aruco_detector)/yaml/dji_fpv_cam_calibration.yaml" />
         <param name="marker_info_yaml" value="$(find-pkg-share aruco_detector)/yaml/landing_pad_final.yaml" />
     </node>
+
+    <!-- <node name="rviz2" pkg="rviz2" exec="rviz2" output="screen" args="-d $(find-pkg-share aruco_detector)/rviz/aruco_detector.rviz" /> -->
 </launch>
