@@ -1,6 +1,6 @@
 <launch>
     <node name="aruco_detector_node" pkg="aruco_detector" exec="aruco_detector" output="screen">
-        <param name="input_image_topic" value="/sensor/camera" />
+        <param name="input_image_topic" value="/psdk_wrapper_node/liveview" />
         <param name="output_image_topic" value="/aruco/annotated_frames" />
         <param name="landing_pad_position_topic" value="/aruco/landing_pad_position" />
         <param name="is_display" value="false" />
