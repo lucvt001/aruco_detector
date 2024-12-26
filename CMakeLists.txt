@@ -44,7 +44,7 @@ add_executable(aruco_detector src/main.cpp src/detector.cpp src/quaternion.cpp)
 ament_target_dependencies(aruco_detector ${ROS_DEPENDENCIES})
 target_link_libraries(aruco_detector ${OpenCV_LIBRARIES} ${YAML_CPP_LIBRARIES})
 install(TARGETS aruco_detector DESTINATION lib/${PROJECT_NAME})
-install(DIRECTORY launch yaml rviz
+install(DIRECTORY launch config rviz
   DESTINATION share/${PROJECT_NAME})
 
 if(BUILD_TESTING)

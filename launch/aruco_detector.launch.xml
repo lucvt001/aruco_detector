@@ -4,8 +4,8 @@
         <param name="output_image_topic" value="/aruco/annotated_frames" />
         <param name="landing_pad_position_topic" value="/aruco/landing_pad_position" />
         <param name="is_display" value="false" />
-        <param name="camera_parameters_yaml" value="$(find-pkg-share aruco_detector)/yaml/dji_fpv_cam_calibration.yaml" />
-        <param name="marker_info_yaml" value="$(find-pkg-share aruco_detector)/yaml/landing_pad_final.yaml" />
+        <param name="camera_parameters_yaml" value="$(find-pkg-share aruco_detector)/config/dji_fpv_cam_calibration.yaml" />
+        <param name="marker_info_yaml" value="$(find-pkg-share aruco_detector)/config/landing_pad_final.yaml" />
     </node>
 
     <!-- <node name="rviz2" pkg="rviz2" exec="rviz2" output="screen" args="-d $(find-pkg-share aruco_detector)/rviz/aruco_detector.rviz" /> -->
